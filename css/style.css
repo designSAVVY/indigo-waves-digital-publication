@@ -72,7 +72,7 @@ body{
 a{
     color: var(--c0);
     font-size: var(--font-size-normal);
-    text-decoration: wavy transparent underline 2px;
+    text-decoration: wavy transparent underline 1.4px;
     transition: text-decoration 250ms;
     cursor: pointer;
 }
@@ -91,7 +91,7 @@ a:hover{
 }
 
 .visibleLink:hover{
-    text-decoration: wavy transparent underline 2px;
+    text-decoration: wavy transparent underline 1.4px;
 }
 
 #landingNav{
