@@ -282,7 +282,7 @@
         grid-template-columns: var(--pageGridColumns5);
         z-index: 12;
         /*box-shadow: 0px -4px 8px rgba(20,0,50,0.3);*/
-        border-top: 1px solid var(--c1);
+        border-top: 2px solid var(--c1);
     }
 
     footer button {
@@ -363,7 +363,15 @@
         text-decoration: underline;
         text-decoration-style: wavy;
         text-decoration-thickness: 1.25px;
-        text-decoration-color: var(--c1);
+        text-decoration-color: var(--c3);
+    }
+
+    .indexDivider{
+        padding-bottom: 0.5em;
+        border-bottom: 6px double var(--c2);
+        margin-bottom: 0.5em;
+        display: block;
+        width: 100%;
     }
 
     details{
@@ -564,6 +572,10 @@
         font-family: var(--displayFontFamily);
         hyphens: auto;
         line-height: 1.2em;
+    }
+
+    strong{
+        font-weight: bold;
     }
 
     p {
