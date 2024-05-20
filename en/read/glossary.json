@@ -1,0 +1,16 @@
+{
+  "glossary": [
+    {
+      "term": "web3",
+      "definition": "Enabled by Distributed Ledger Technologies to integrate ownership, p2p or economic functionality using cryptocurrencies."
+    },
+    {
+      "term": "JSON",
+      "definition": "JSON is a lightweight format for storing and transporting data. JSON is often used when data is sent from a server to a web page. Definition from w3schools."
+    },
+    {
+      "term": "definition",
+      "definition": "A statement of the meaning of a word, phrase, or term, as in a dictionary entry. Definition from wordnik."
+    }
+  ]
+}
