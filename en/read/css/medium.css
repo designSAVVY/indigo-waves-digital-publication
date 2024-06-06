@@ -36,19 +36,22 @@
 
     #bookIndex {
         position: absolute;
-        width: 21vw;
-        min-width: 250px;
-        background-color: var(--bg);
+        width: 20vw;
+        padding-right: 1em;
+        min-width: 180px;
+        background-color: var(--bgA);
         box-shadow: 4px -2px 12px rgba(0,0,0,0.75);
         margin-top: 0;
         z-index: 6;
-        transform: translateX(-80vw);
+        filter: blur(24px);
+        opacity: 0;
         pointer-events: none;
-        transition: transform 300ms;
+        transition: filter 400ms, opacity 500ms;
     }
 
     .showBookIndex{
-        transform: translateX(0vw) !important;
+        filter: blur(0px) !important;
+        opacity: 1 !important;
         pointer-events: all !important;
      }
 

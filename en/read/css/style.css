@@ -421,7 +421,7 @@
         font-size: var(--bookFontSize);
         transition: background-image 250ms, transform 450ms;
         overflow-y: scroll;
-        height: calc(100vh - 2em);
+        height: calc(100vh - (2 * var(--borderWidth)));
         transition: filter 300ms;
         /*background-image: linear-gradient(to right, rgba(0,0,0,0.7), transparent);*/
     }

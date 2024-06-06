@@ -32,21 +32,23 @@
 
     #footNotesAndAudiobook {
         position: absolute;
-        width: 80vw;
-        background-color: var(--bg);
+        width: 75vw;
+        background-color: var(--bgB);
         box-shadow: 4px -2px 12px rgba(0,0,0,0.75);
-        height: calc(100vh - 2em) !important;
-        max-height: calc(100vh - 2em) !important;
+        height: calc(100vh - (2 * var(--borderWidth)));
+        max-height: calc(100vh - (2 * var(--borderWidth)));
         margin-top: 0;
         z-index: 5;
-        transform: translateX(-100vw);
+        opacity: 0;
+        filter: blur(48px);
         padding: 0;
         pointer-events: none;
-        transition: background-image 250ms, transform 550ms;
+        transition: opacity 350ms, filter 500ms;
     }
 
     .showBookFootNotes{
-        transform: translateX(0vw) !important;
+        filter: blur(0px) !important;
+        opacity: 1 !important;
         pointer-events: all !important;
      }
 
@@ -58,7 +60,7 @@
 
      blockquote {
         margin-top: 1em;
-        padding: 0em 1.5em;
+        padding: 0em 0.5em 0em 0.75em;
      }
 
     #footNoteTool{
@@ -115,14 +117,6 @@
 
     #bookBiggerFontButton, #bookSmallerFontButton{
         display: none;
-    }
-
-    #secondaryNav{
-        margin-left: 2rem;
-    }
-
-    #bookIndex, #footNotesAndAudiobook{
-        margin-left: 2rem;
     }
 
     #bookTools button:hover::after {
