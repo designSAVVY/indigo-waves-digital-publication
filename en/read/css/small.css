@@ -78,10 +78,26 @@
 @media(max-width: 680px){
     :root{
         --bookFontSize: 20px !important;
+        --borderWidth: 8vw;
     }
 
-    .tooltip .definition {
-        font-size: 1.2rem;
+    #borderBlack{
+        border: 0.75vw solid black;  
+    }
+
+    #borderSerpentOne{
+        border: 1.5vw solid transparent;
+        border-image: url(../imgs/borderA.svg) 100 round; 
+    }
+
+    #borderEllipses{
+        border: 3.25vw solid transparent;
+        border-image: url(../imgs/borderB.svg) 100 round;
+    }
+
+    #borderSerpentTwo{
+        border: 1.5vw solid transparent;
+        border-image: url(../imgs/borderA.svg) 100 round; 
     }
 
     .img11{

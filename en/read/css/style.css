@@ -85,13 +85,16 @@
     
 :root
     {
-        --bg: #0065AF;
-        --c1: #d8fafa;
-        --c2: #E7392A;
+        --bg: #3F4B9A;
+        --bgA: #019B95;
+        --bgB: #3F4B9A;
+        --c1: #f7e8fc;
+        --c2: #fc4737;
         --c3: #FBF00A;
-        --c4: #E7392A;
+        --c4: #fc4737;
         --eMshadow: 0px 0px 12px var(--c2);
         --bookFontSize: 20px;
+        --borderWidth: 5vw;
         --mainFontFamily: 'Source Sans Pro';
         --displayFontFamily: 'Zimula';
         --interfaceFontFamily: 'Karrik';
@@ -137,13 +140,15 @@
   }    
 
     body {
-        background-color: var(--bg);
+        background-image: linear-gradient(var(--bgA),var(--bgB));
         font-family: var(--mainFontFamily);
         display: grid;
         grid-template-columns: var(--pageGridColumns5);
         grid-template-rows: 1fr 3em;
         overflow: hidden;
         transition: color 300ms, background-color 250ms;
+        border: var(--borderWidth) solid transparent;
+        height: calc(100vh - (2 * var(--borderWidth)) );
     }
 
     em{
@@ -152,6 +157,75 @@
 
     i{
         font-style: italic;
+    }
+
+    #borderBlack{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        margin: calc(var(--borderWidth) * -1);
+        border: 0.5vw solid black;
+        box-sizing: border-box;
+    }
+
+    #borderSerpentOne{
+        width: 100%;
+        height: 100%;
+        border: 1vw solid transparent;
+        border-image: url(../imgs/borderA.svg) 100 round;
+        box-sizing: border-box;
+    }
+
+    #borderEllipses{
+        width: 100%;
+        height: 100%;
+        border: 2vw solid transparent;
+        border-image: url(../imgs/borderB.svg) 100 round;
+        box-sizing: border-box;
+    }
+
+    #borderSerpentTwo{
+        width: 100%;
+        height: 100%;
+        border: 1vw solid transparent;
+        border-image: url(../imgs/borderA.svg) 100 round;
+        box-sizing: border-box;
+    }
+
+    .border{
+        pointer-events: none;
+        mix-blend-mode: darken;
+        padding: 0.15vw;
+        z-index: -1;
+    }
+
+    #oneBorder{
+        position: fixed;
+        width: calc(100vw - (2 * var(--borderWidth)));
+        height: calc(100vh - (2 * var(--borderWidth)));
+        margin: calc(var(--borderWidth) * -1);
+        border: var(--borderWidth) solid transparent;
+        border-image: url(../imgs/borderA.svg) 100 round;
+        pointer-events: none;
+    }
+
+    #borderGrid{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        margin: calc(var(--borderWidth) * -1);
+
+        display: grid;
+        grid-template-columns: var(--borderWidth) 1fr var(--borderWidth);
+        grid-template-rows: var(--borderWidth) 1fr var(--borderWidth);
+        pointer-events: none;
+    }
+
+    .borderCorner{
+        display: grid;
+        grid-template-columns: 0.7fr 1fr 2fr 1fr;
+        grid-template-rows: 0.7fr 1fr 2fr 1fr;
+        gap: 0.1fr;
     }
 
     .fullscreen-padding {
@@ -243,17 +317,17 @@
 
     button {
         font-size: 28px;
-        background-color: var(--bg);
+        background-color: transparent;
         color: var(--c1);
         border: none;
         cursor: pointer;
-        transition: background-color 200ms, color 250ms;
+        transition: color 250ms, text-shadow 200ms;
         font-family: var(--interfaceFontFamily);
     }
 
     button:hover {
-        background-color: var(--c1);
-        color: var(--bg);
+        color: var(--c3);
+        text-shadow: 0px 0px 3px rgba(0,0,0,0.5), 0px 0px 6px var(--bgB), 0px 0px 9px var(--bgA);
     }
 
     #mainNav {
@@ -281,12 +355,14 @@
         display: grid;
         grid-template-columns: var(--pageGridColumns5);
         z-index: 12;
-        /*box-shadow: 0px -4px 8px rgba(20,0,50,0.3);*/
-        border-top: 2px solid var(--c1);
+        position: fixed;
+        bottom: 0;
+        width: calc(100% - (2 * var(--borderWidth)) );
     }
 
     footer button {
         border: none;
+        height: var(--borderWidth);
     }
 
     #bookTools {
@@ -311,8 +387,8 @@
         left: 50%;
         transform: translateX(-50%);
         padding: 8px;
-        background-color: var(--c1);
-        color: var(--bg);
+        background-color: black;
+        color: var(--c1);
         white-space: nowrap;
         font-size: var(--bookFontSize);
         box-shadow: 0px 0px 6px rgba(0,0,0,0.5);
@@ -347,7 +423,6 @@
         overflow-y: scroll;
         height: calc(100vh - 2em);
         transition: filter 300ms;
-        border-right: 6px dotted var(--c3);
         /*background-image: linear-gradient(to right, rgba(0,0,0,0.7), transparent);*/
     }
 
@@ -368,7 +443,7 @@
 
     .indexDivider{
         padding-bottom: 0.5em;
-        border-bottom: 6px double var(--c2);
+        border-bottom: 3px dotted black;
         margin-bottom: 0.5em;
         display: block;
         width: 100%;
@@ -393,7 +468,7 @@
         grid-column: 3;
         grid-row: 1;
 
-        height: calc(100dvh - 2em);
+        height: calc(100dvh - (2 * var(--borderWidth)));
         overflow-x: hidden;
         overflow-y: scroll;
         scroll-behavior: smooth;
@@ -428,7 +503,6 @@
         overflow-y: scroll;
         max-height: calc(100vh - 5.5em);
         transition: transform 300ms, filter 300ms;
-        border-right: 6px double var(--c2);
         /*background-image: linear-gradient(to right, rgba(0,0,0,0.3), transparent);*/
     }
 
@@ -524,7 +598,7 @@
         margin-bottom: 0.5em;
         padding-top: 0.5em;
         margin-top: 1em;
-        border-top: 6px dotted var(--c1);
+        border-top: 6px dotted black;
         line-height: 1.25em;
         font-family: var(--displayFontFamily);
         color: var(--c3);
@@ -600,21 +674,6 @@
         margin-bottom: 0.1em;
     }
 
-    .unitNFT{
-        background-color: transparent;
-        float: left;
-        width: 2.5rem;
-        margin-right: 0.45em;
-        margin-top: 0.25em;
-        position: relative;
-        cursor: pointer;
-        border: 4px solid #010101;
-        border-radius: 8px;
-        line-height: 0;
-
-        transition: background-color 1200ms ease-in-out, width 1200ms ease-in-out, margin-top 1300ms;
-    }
-
     .tooltip {
         display: none;
         /* other tooltip styles */
@@ -661,6 +720,7 @@
 
     sup {
         vertical-align: super;
+        font-weight: bold;
         font-size: 0.75em;
         line-height: 0;
         background-color: var(--c2);
