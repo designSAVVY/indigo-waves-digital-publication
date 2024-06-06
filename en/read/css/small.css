@@ -32,7 +32,7 @@
 
     #footNotesAndAudiobook {
         position: absolute;
-        width: 75vw;
+        width: 70vw;
         background-color: var(--bgB);
         box-shadow: 4px -2px 12px rgba(0,0,0,0.75);
         height: calc(100vh - (2 * var(--borderWidth)));
