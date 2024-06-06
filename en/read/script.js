@@ -3,9 +3,10 @@ let root  = document.documentElement;
 
 //Change color scheme
 const colorSchemes = [
-    /* --bg, --c1,  --c2, --c3, --c4 */
-    ['#d8fafa','#442200','#0066ff','#007ea8','#0066ff','light'], //Indigo Light Blue
-    ['#0065AF','#d8fafa','#E7392A','#FBF00A','#E7392A','dark'], //Indigo Deep Blue
+    /* --bg, --bgA, --bgB, --c1,  --c2, --c3, --c4 */
+    ['#3F4B9A','#F18402','#3F4B9A','#fcfce8','#680117','#FBF00A','#680117','dark'], //Indigo Deep Blue
+    ['#933786','#019754','#933786','#e8f1fc','#FBF00A','#fc4737','#FBF00A','dark'], //Indigo Light Blue
+    ['#3F4B9A','#019B95','#3F4B9A','#f7e8fc','#fc4737','#FBF00A','#fc4737','dark'], //Indigo dark Blue
 ];
 
 const bookColorButton = document.getElementById('bookColorButton');
@@ -18,13 +19,15 @@ let colorCounter = 0;
 bookColorButton.onclick = function(){
   // Set color scheme
   root.style.setProperty('--bg', colorSchemes[colorCounter][0]);
-  root.style.setProperty('--c1', colorSchemes[colorCounter][1]);
-  root.style.setProperty('--c2', colorSchemes[colorCounter][2]);
-  root.style.setProperty('--c3', colorSchemes[colorCounter][3]);
-  root.style.setProperty('--c4', colorSchemes[colorCounter][4]);
+  root.style.setProperty('--bgA', colorSchemes[colorCounter][1]);
+  root.style.setProperty('--bgB', colorSchemes[colorCounter][2]);
+  root.style.setProperty('--c1', colorSchemes[colorCounter][3]);
+  root.style.setProperty('--c2', colorSchemes[colorCounter][4]);
+  root.style.setProperty('--c3', colorSchemes[colorCounter][5]);
+  root.style.setProperty('--c4', colorSchemes[colorCounter][6]);
 
   // Check if the color scheme type is dark
-  if (colorSchemes[colorCounter][5] === 'dark') {
+  if (colorSchemes[colorCounter][7] === 'dark') {
       // If dark theme, apply the CSS filter to invert the colors of the images
       for (let i = 0; i < invertOnDarkArray.length; i++) {
           invertOnDarkArray[i].style.filter = 'invert(1)';
