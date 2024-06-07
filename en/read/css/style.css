@@ -14,6 +14,14 @@
     }
 
 @font-face {
+        font-family: 'Gambetta-Light';
+              src:    url('../fonts/Gambetta-Light.woff') format('woff'),
+                      url('../fonts/Gambetta-Light.woff2') format('woff2');
+              font-weight: normal;
+              font-style: normal;
+        }
+
+@font-face {
     font-family: 'basteleur';
     src: url('../fonts/Basteleur-Moonlight.woff2') format('woff2'), url('../fonts/Basteleur-Moonlight.woff') format('woff');
     font-weight: normal;
@@ -88,16 +96,16 @@
         --bg: #3F4B9A;
         --bgA: #019B95;
         --bgB: #3F4B9A;
-        --c1: #f7e8fc;
-        --c2: #fc4737;
+        --c1: #F4F4F4;
+        --c2: #FBF00A;
         --c3: #FBF00A;
-        --c4: #fc4737;
+        --c4: #FBF00A;
         --eMshadow: 0px 0px 12px var(--c2);
         --bookFontSize: 20px;
         --borderWidth: 5vw;
-        --mainFontFamily: 'Source Sans Pro';
+        --mainFontFamily: 'Zimula';
         --displayFontFamily: 'Zimula';
-        --interfaceFontFamily: 'Karrik';
+        --interfaceFontFamily: 'Zimula';
         --gridInnerPadding: 2vw;
 
         --pageGridColumns5: 1fr 2fr 3fr;
@@ -209,23 +217,39 @@
         pointer-events: none;
     }
 
-    #borderGrid{
+    #landingNav{
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        margin-left: calc( (var(--borderWidth) * -1) +  (var(--borderWidth)/ 2 - 0.5em)  );
         position: fixed;
-        width: 100vw;
-        height: 100vh;
-        margin: calc(var(--borderWidth) * -1);
-
-        display: grid;
-        grid-template-columns: var(--borderWidth) 1fr var(--borderWidth);
-        grid-template-rows: var(--borderWidth) 1fr var(--borderWidth);
-        pointer-events: none;
+        bottom: calc(var(--borderWidth) - 4vh);
+        display: flex;
+        justify-content: center;
+    }
+    
+    #landingNav nav{
+        display: block;
+        height: max-content;
+    }
+    
+    #landingNav a{
+        text-decoration: none;
+        font-family: var(--displayFontFamily);
+        font-size: var(--bookFontSize);
+        padding: 2vh;
     }
 
-    .borderCorner{
-        display: grid;
-        grid-template-columns: 0.7fr 1fr 2fr 1fr;
-        grid-template-rows: 0.7fr 1fr 2fr 1fr;
-        gap: 0.1fr;
+    #landingNav a:hover{
+        text-decoration: underline;
+        text-decoration-style: wavy;
+        text-decoration-thickness: 1.4px;
+        text-decoration-color: var(--c3);
+    }
+    
+    #languageNav{
+        color: var(--c0);
+        text-align: center;
+        font-weight: bold;
     }
 
     .fullscreen-padding {
@@ -426,6 +450,15 @@
         /*background-image: linear-gradient(to right, rgba(0,0,0,0.7), transparent);*/
     }
 
+    #bookIndex:-webkit-scrollbar {
+        display: none;
+      }
+
+      #bookIndex {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+
     #bookIndex a {
         break-after: always;
         margin-bottom: 1em;
@@ -443,7 +476,7 @@
 
     .indexDivider{
         padding-bottom: 0.5em;
-        border-bottom: 3px dotted black;
+        border-bottom: 0px dotted black;
         margin-bottom: 0.5em;
         display: block;
         width: 100%;
@@ -505,6 +538,15 @@
         transition: transform 300ms, filter 300ms;
         /*background-image: linear-gradient(to right, rgba(0,0,0,0.3), transparent);*/
     }
+
+    #footNotesAndAudiobook:-webkit-scrollbar {
+        display: none;
+      }
+
+      #footNotesAndAudiobook {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
 
     .hiddenBookfootNotes{
         transform: translateX(-65vw);
@@ -598,7 +640,7 @@
         margin-bottom: 0.5em;
         padding-top: 0.5em;
         margin-top: 1em;
-        border-top: 6px dotted black;
+        border-top: 0px dotted black;
         line-height: 1.25em;
         font-family: var(--displayFontFamily);
         color: var(--c3);

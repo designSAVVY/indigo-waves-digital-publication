@@ -83,6 +83,12 @@
         --borderWidth: 8vw;
     }
 
+    #landingNav{
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        margin-left: calc( (var(--borderWidth) * -1) +  (var(--borderWidth)/ 2 - 0.8em)  );
+    }
+
     #borderBlack{
         border: 0.75vw solid black;  
     }
