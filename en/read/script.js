@@ -4,9 +4,9 @@ let root  = document.documentElement;
 //Change color scheme
 const colorSchemes = [
     /* --bg, --bgA, --bgB, --c1,  --c2, --c3, --c4 */
-    ['#3F4B9A','#F18402','#3F4B9A','#fcfce8','#680117','#FBF00A','#680117','dark'], //Indigo Deep Blue
-    ['#933786','#019754','#933786','#e8f1fc','#FBF00A','#fc4737','#FBF00A','dark'], //Indigo Light Blue
-    ['#3F4B9A','#019B95','#3F4B9A','#f7e8fc','#fc4737','#FBF00A','#fc4737','dark'], //Indigo dark Blue
+    ['#3F4B9A','#F18402','#3F4B9A','#F4F4F4','#FBF00A','#FBF00A','#FBF00A','dark'], //Indigo Deep Blue
+    ['#933786','#019754','#933786','#F4F4F4','#FBF00A','#FBF00A','#FBF00A','dark'], //Indigo Light Blue
+    ['#3F4B9A','#019B95','#3F4B9A','#F4F4F4','#FBF00A','#FBF00A','#FBF00A','dark'], //Indigo dark Blue
 ];
 
 const bookColorButton = document.getElementById('bookColorButton');
@@ -51,8 +51,8 @@ bookColorButton.onclick = function(){
 //Change fonts
 const fontPairs = [
     /* book, display, interface */
-    ['Zimula', 'geomanist','Karrik'],
-    ['Source Sans Pro', 'Zimula','Karrik'],
+    ['Gambetta-Light', 'Zimula','Zimula'],
+    ['Zimula', 'Zimula','Zimula'],
 ];
 
 const bookFontButton = document.getElementById('bookFontButton');
