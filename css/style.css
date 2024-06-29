@@ -207,6 +207,11 @@ footer{
  grid-column: span 2;
 }
 
+#uniMelbourne{
+    width: 60% !important;
+    margin-left: 20%;
+}
+
 #logosContainer a img{
     width: 100%;
     height: 100%;
@@ -214,6 +219,9 @@ footer{
 
 #impressumLink{
     text-align: center;
+    margin-top: 2em;
+    grid-row: 2;
+    grid-column: 1 / 8;
 }
 
 #lottoLogo span{
