@@ -97,11 +97,11 @@ a:hover{
 #landingNav{
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    margin-left: var(--margin-small);
-    grid-column: 1;
-    grid-row: 1 / -1;
     display: flex;
     justify-content: center;
+    height: 100vh;
+    position: fixed;
+    left: var(--margin-medium);
 }
 
 #landingNav nav{
