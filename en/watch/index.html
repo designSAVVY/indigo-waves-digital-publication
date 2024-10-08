@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css" />
+    <link rel="stylesheet" href="../../css/style.css" type="text/css" />
+    <title>Watch | Indigo Waves | Savvy Contemporary</title>
+</head>
+<body>
+
+    <div id="landingNav">
+        <nav>
+            <a href="../">Home</a>
+            <a href="#">See</a>
+            <a href="../read/">Read</a>
+            <a href="../listen/">Listen</a>
+            <a href="../watch">Watch</a>
+            <a href="#">Sense</a>
+            <a href="#">About</a>
+        </nav>
+    </div>
+
+<div id="wrapper">
+    <div id="watch-container">
+
+        <iframe class="left-video" width="100%" src="https://www.youtube-nocookie.com/embed/WaPeBcO3c8s?si=Mrw-4zGIOH21-Oxu" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <iframe class="right-video" width="100%" src="https://www.youtube-nocookie.com/embed/bIEO_IbX4oI?si=q3eTnIqjCy56mcuj" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <iframe class="left-video" width="100%" src="https://www.youtube-nocookie.com/embed/0X7_C2Z6HOQ?si=rIBY2K_bvP-hKHhQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <iframe class="right-video" width="100%" src="https://www.youtube-nocookie.com/embed/iYtrdXfAiuo?si=JaxhLQqEiUhdtOca" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <iframe class="left-video" width="100%" src="https://www.youtube-nocookie.com/embed/BsSXz45bzV4?si=UbcTXGyO1z9jifng" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <iframe class="right-video" width="100%" src="https://www.youtube-nocookie.com/embed/rfD1A9m2Knk?si=xYwwZU9PlvCGt6KK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <iframe class="left-video" width="100%" src="https://www.youtube-nocookie.com/embed/agmJZbmAVhU?si=3JfV_E59B85MP7qR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <iframe class="right-video" width="100%" src="https://www.youtube-nocookie.com/embed/VuLmdqGgSh8?si=hBXakqwFIaci4mkS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+
+    </div>
+</div>
+
+</body>
+</html>
+
+<style>
+    #watch-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 10vh;
+        margin-top: 20vh;
+        padding: 3em;
+    }
+
+    #watch-container iframe{
+        min-height: 400px;
+        height: 10vh;
+        max-height: 720px;
+    }
+
+    .left-video{
+        grid-column: 1 / 3;
+    }
+
+    .right-video{
+        grid-column: 2 / 4;
+    }
+
+    .full-width {
+            grid-column: 1 / 4 !important;
+        }
+    
+    @media(max-width: 960px) {
+
+        .left-video{
+            grid-column: 1 / 4;
+        }
+
+        .right-video{
+            grid-column: 1 / 4;
+        }
+
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const iframes = document.querySelectorAll('iframe');
+        let currentPlaying = null;
+
+        iframes.forEach(iframe => {
+            iframe.addEventListener('play', () => {
+                // Stop any currently playing video
+                if (currentPlaying && currentPlaying !== iframe) {
+                    currentPlaying.src = currentPlaying.src; // Reset the iframe
+                }
+
+                // Set the current iframe as playing
+                currentPlaying = iframe;
+
+                // Apply full-width styling
+                iframes.forEach(el => el.classList.remove('full-width')); // Reset other videos
+                iframe.classList.add('full-width');
+            });
+        });
+
+        // Listener for YouTube iframe events (since play event doesn't trigger on iframe)
+        const tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        const firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        window.onYouTubeIframeAPIReady = () => {
+            iframes.forEach((iframe, index) => {
+                new YT.Player(iframe, {
+                    events: {
+                        'onStateChange': function(event) {
+                            if (event.data == YT.PlayerState.PLAYING) {
+                                if (currentPlaying && currentPlaying !== iframe) {
+                                    currentPlaying.src = currentPlaying.src; // Reset the current playing iframe
+                                }
+                                currentPlaying = iframe;
+                                iframes.forEach(el => el.classList.remove('full-width'));
+                                iframe.classList.add('full-width');
+                            }
+                        }
+                    }
+                });
+            });
+        };
+    });
+</script>
