@@ -9,6 +9,8 @@
 </head>
 <body>
 
+    <div id="background-img"></div>
+
     <div id="landingNav">
         <nav>
             <a href="../">About</a>
@@ -66,8 +68,12 @@
 </html>
 
 <style>
-    body{
+    #background-img{
         background: url('Listening-Backgroungd.svg')center center fixed;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: -1;
     }
 
     #gradientBg{
