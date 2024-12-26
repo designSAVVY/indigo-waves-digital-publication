@@ -1,0 +1,161 @@
+@media(max-width: 1080px) {
+
+    body{
+        grid-template-columns: var(--pageGridColumns1);
+
+        grid-template-rows: 1fr max-content;
+    }
+
+    #buttonFootNotes{
+        display: block;
+    }
+    
+    footer{
+        grid-template-columns: var(--pageGridColumns1);
+    }
+
+    h1{
+        font-size: 2em;
+    }
+
+    h2{
+        font-size: 1.25em;
+    }
+    
+    #forewordSummary{
+        font-size: 1.25em;
+    }
+
+    h3,h5{
+        font-size: 1.1em;
+    }
+
+    #footNotesAndAudiobook {
+        position: absolute;
+        width: 70vw;
+        background-color: var(--bgB);
+        box-shadow: 4px -2px 12px rgba(0,0,0,0.75);
+        height: calc(100vh - (2 * var(--borderWidth)));
+        max-height: calc(100vh - (2 * var(--borderWidth)));
+        margin-top: 0;
+        z-index: 5;
+        opacity: 0;
+        filter: blur(48px);
+        padding: 0;
+        pointer-events: none;
+        transition: opacity 350ms, filter 500ms;
+    }
+
+    .showBookFootNotes{
+        filter: blur(0px) !important;
+        opacity: 1 !important;
+        pointer-events: all !important;
+     }
+
+     #audiobookContainer{
+        margin: 0;
+        padding: 1.5em;
+        width: calc(100% - 4em);
+     }
+
+     blockquote {
+        margin-top: 1em;
+        padding: 0em 0.5em 0em 0.75em;
+     }
+
+    #footNoteTool{
+        display: none;
+    }
+
+    #bookContent {
+        grid-column: 1;
+    }
+
+    #bookTools{
+        grid-column: 1;
+    }
+
+}
+
+@media(max-width: 680px){
+    :root{
+        --bookFontSize: 20px !important;
+        --borderWidth: 8vw;
+    }
+
+    #landingNav{
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        margin-left: calc( (var(--borderWidth) * -1) +  (var(--borderWidth)/ 2 - 0.8em)  );
+    }
+
+    #borderBlack{
+        border: 0.75vw solid black;  
+    }
+
+    #borderSerpentOne{
+        border: 1.5vw solid transparent;
+        border-image: url(../imgs/borderA.svg) 100 round; 
+    }
+
+    #borderEllipses{
+        border: 3.25vw solid transparent;
+        border-image: url(../imgs/borderB.svg) 100 round;
+    }
+
+    #borderSerpentTwo{
+        border: 1.5vw solid transparent;
+        border-image: url(../imgs/borderA.svg) 100 round; 
+    }
+
+    .img11{
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    #mainNav button span {
+        font-size: 1.25rem;
+      } 
+      
+    button{
+        font-size: 1.5rem;
+    }
+
+    #bookBiggerFontButton, #bookSmallerFontButton{
+        display: none;
+    }
+
+    #bookTools button:hover::after {
+        display: none !important;
+    }
+
+}
+
+@media(max-width: 500px){
+    #tableContainer{
+        max-width: 314px;
+        overflow-x: scroll;
+    }
+
+    #bookTools button{
+        padding: 2px 4px 2px 4px !important;
+    }
+
+    .mainNavButton{
+        padding: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    #bookContent{
+        padding-left: 4px !important;
+    }
+
+    footer{
+        overflow: hidden;
+        height: min-content;
+    }
+
+    #bookIndex{
+        margin-bottom: 64px;
+    }
+}
