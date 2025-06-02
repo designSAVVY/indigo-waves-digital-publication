@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/reset.css" type="text/css">
+    <link rel="stylesheet" href="../../css/style.css" type="text/css">
+    <title>See | Indigo Waves | Exhibition Galleries</title>
+    <style>
+        #wrapper {
+            margin-top: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .gallery-grid {
+            padding: 0 0 0 3em;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 1440px;
+            width: 100%;
+        }
+
+        .gallery-link {
+            text-decoration: none;
+            color: var(--c0);
+            text-align: center;
+            padding: 2em;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-link:hover {
+            background-color: var(--c0);
+            color: var(--bg1);
+        }
+
+        .gallery-link h2 {
+            line-height: 1.25em;
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+
+        .gallery-link p {
+            font-size: 1.2em;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 960px) {
+            #wrapper {
+                height: auto;
+                min-height: 100vh;
+                padding: 2em 0;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="landingNav">
+        <nav>
+            <a href="../">About</a>
+            <a href="../read/">Read</a>
+            <a href="../watch/">Watch</a>
+            <a href="../listen/">Listen</a>
+            <a href="../people/">People</a>
+        </nav>
+    </div>
+
+    <div id="wrapper">
+        <div class="gallery-grid">
+            <a href="savvy_contemporary/" class="gallery-link">
+                <h2>SAVVY <br> Contemporary</h2>
+            </a>
+            <a href="zeitz_mocaa/" class="gallery-link">
+                <h2>Zeitz <br> MOCAA</h2>
+            </a>
+            <a href="gropius_bau/" class="gallery-link">
+                <h2>Gropius <br> Bau</h2>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

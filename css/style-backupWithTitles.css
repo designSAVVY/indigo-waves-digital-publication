@@ -1,0 +1,235 @@
+:root{
+    --bg1: #0065AF;
+    --bg2:  #E7392A;
+    --c0: #d8fafa;
+    --c1: #FBF00A;
+    --font-size-tiny: 0.75em;
+    --font-size-small: 1em;
+    --font-size-normal: 1.25em;
+    --font-size-big: 1.5em;
+    --margin-small: 0.5em;
+    --margin-medium: 1em;
+    --margin-big: 2em;
+    --margin-huge: 4em;
+    --margin-massive: 8em;
+}
+
+::selection{
+    color: black;
+    background-color: var(--c1);
+}
+
+@font-face {
+    font-family: 'Zimula';
+          src:    url('../fonts/Zimula-ExtraLightInkSpot.woff') format('woff'),
+                  url('../fonts/Zimula-ExtraLightInkSpot.woff2') format('woff2');
+          font-weight: normal;
+          font-style: normal;
+    }
+
+body{
+    background-image: linear-gradient(to bottom, var(--bg1), var(--bg2));
+    scroll-behavior: smooth;
+
+    font-family: "Zimula";
+    color: var(--c0);
+
+    display: grid;
+    grid-template-columns: 1fr minmax(320px, 1280px) 1fr;
+}
+
+#wrapper{
+    grid-column: 2;
+}
+
+#landing{
+    grid-column: 1 / -1;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: var(--margin-huge) 1fr var(--margin-huge);
+    grid-template-rows: 1fr min-content 1fr min-content;
+}
+
+#title{
+    grid-column: 2;
+    grid-row: 2;
+    text-align: center;
+    color: var(--c1);
+}
+
+#landing h1{
+    font-size: clamp(4em, 6vw, 10em);
+}
+
+#landing h2{
+    font-size: clamp(2em, 3vw, 7em);
+}
+
+#intro section,footer{
+    margin: var(--margin-massive) 0;
+}
+
+a{
+    color: var(--c0);
+    font-size: var(--font-size-normal);
+    text-decoration: wavy transparent underline 1.4px;
+    transition: text-decoration 250ms;
+    cursor: pointer;
+}
+
+a:hover{
+    text-decoration: wavy underline 2px;
+}
+
+.arrowLink{
+    font-size: var(--font-size-tiny);
+    vertical-align: super;
+}
+
+.visibleLink{
+    text-decoration: wavy underline 2px;
+}
+
+.visibleLink:hover{
+    text-decoration: wavy transparent underline 1.4px;
+}
+
+#landingNav{
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    margin-left: var(--margin-small);
+    grid-column: 1;
+    grid-row: 1 / -1;
+    display: flex;
+    justify-content: center;
+}
+
+#landingNav nav{
+    height: max-content;
+}
+
+#landingNav a{
+    padding: var(--margin-small);
+}
+
+#languageNav{
+    color: var(--c0);
+    text-align: center;
+    margin-bottom: 5vh;
+    grid-column: 2;
+    grid-row: 4;
+    font-weight: bold;
+}
+
+#intro{
+    padding: 0 var(--margin-medium);
+}
+
+#introText{
+    font-size: var(--font-size-big);
+    line-height: 1.25em;
+}
+
+#handouts{
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+}
+
+#handoutPairContainer{
+    grid-column: 2;
+
+    display: grid;
+    grid-gap: var(--margin-huge);
+    grid-template-columns: 1fr 1fr;
+    word-break: break-word;
+}
+
+.justifyRight{
+    justify-self: right;
+}
+
+.justifyLeft{
+    justify-self: left;
+}
+
+.handoutContainer img{
+    width: 100%;
+    max-width: 240px;
+    transition: transform 250ms;
+}
+
+.handoutContainer img:hover{
+    transform: scale(110%);
+}
+
+.handoutContainer {
+    color: var(--c1);
+    font-size: var(--font-size-small);
+    text-decoration: none; 
+}
+
+.handoutContainer:hover{
+    text-decoration: none;
+}
+
+#introNav{
+    display: grid;
+    grid-template-columns: 1fr 10fr 1fr;
+    justify-items: center;
+    text-align: center;
+    line-height: var(--font-size-big);
+    margin-top: var(--margin-huge);
+    font-size: var(--font-size-big);
+}
+
+#introNavContainer{
+    grid-column: 2;
+}
+
+#introNavContainer span{
+    font-size: var(--font-size-normal);
+}
+
+footer{
+    margin: var(--margin-huge) 0;
+}
+
+#logosContainer {
+    display: grid;
+    padding: var(--margin-medium);
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    grid-column-gap: var(--margin-huge);
+    grid-row-gap: var(--margin-big);
+    align-items: end;
+}
+
+.doubleGridSpan{
+ grid-column: span 2;
+}
+
+#uniMelbourne{
+    width: 60% !important;
+    margin-left: 20%;
+}
+
+#logosContainer a img{
+    width: 100%;
+    height: 100%;
+}
+
+#impressumLink{
+    text-align: center;
+    margin-top: 2em;
+    grid-row: 2;
+    grid-column: 1 / 8;
+}
+
+#lottoLogo span{
+    display: block;
+    font-size: var(--font-size-tiny);
+    margin-bottom: var(--margin-small);
+}
+
+#lottoLogo{
+    text-decoration: none;
+}
