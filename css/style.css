@@ -65,8 +65,8 @@ body{
     font-size: clamp(2em, 3vw, 7em);
 }
 
-#intro section,footer{
-    margin: var(--margin-massive) 0;
+#landing h3{
+    font-size: clamp(1.5em, 2vw, 5em);
 }
 
 a{
@@ -131,6 +131,7 @@ a:hover{
 }
 
 #handouts{
+    margin-top: var(--margin-huge);
     display: grid;
     grid-template-columns: 1fr 10fr 1fr;
 }
@@ -140,7 +141,7 @@ a:hover{
 
     display: grid;
     grid-gap: var(--margin-huge);
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     word-break: break-word;
 }
 
@@ -154,7 +155,7 @@ a:hover{
 
 .handoutContainer img{
     width: 100%;
-    max-width: 240px;
+    max-width: 250px;
     transition: transform 250ms;
 }
 
