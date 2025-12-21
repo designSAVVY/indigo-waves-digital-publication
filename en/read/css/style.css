@@ -429,6 +429,11 @@
         opacity: 1;
     }
 
+    #bookTools #buttonIndex.activeButton,
+    #bookTools #buttonFootNotes.activeButton {
+        color: var(--c3);
+    }
+
     #bookOrbsButton img{
         width: 24px;
         margin-top: 10px;
@@ -657,6 +662,21 @@
         border-top: 1px solid var(--c2);
     }
 
+    #ToC-altButton{
+        opacity: 0;
+        cursor: pointer;
+        color: var(--c1);
+        text-decoration: underline;
+        text-decoration-style: wavy;
+        text-decoration-thickness: 1.25px;
+        text-decoration-color: var(--c3);
+        pointer-events: none;
+    }
+
+    #ToC-altButton:hover{
+        text-decoration: none;
+    }
+
     #deutsch{
         font-size: 1.25em;
     }
@@ -788,7 +808,21 @@
         transition: border 250ms, background-color 250ms;
     }
 
-    sup {
+    .footNote {
+        vertical-align: super;
+        font-weight: bold;
+        font-size: 0.75em;
+        line-height: 0;
+        background-color: var(--c2);
+        transition: background-color 250ms, color 300ms;
+        color: var(--bg);
+        padding: 0.1em 0.3em;
+        margin-left: 0.25em;
+        margin-top: 0.25em;
+        cursor: pointer;
+    }
+
+    blockquote sup {
         vertical-align: super;
         font-weight: bold;
         font-size: 0.75em;

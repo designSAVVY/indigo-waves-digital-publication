@@ -9,6 +9,11 @@
         display: block;
     }
 
+    #ToC-altButton{
+        opacity: 1;
+        pointer-events: all;
+    }
+
     footer{
         grid-column: 1 / 4;
         grid-template-columns: var(--pageGridColumns3);
