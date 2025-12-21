@@ -171,15 +171,69 @@ function loadAndPlayAudio(file, sectionId) {
 
 //Toggle Index and Footnotes in mobile
 const bookIndex = document.getElementById("bookIndex");
+const buttonIndex = document.getElementById("buttonIndex");
+const tocAltButton = document.getElementById("ToC-altButton");
+const bookIndexToggleButtons = [buttonIndex, tocAltButton].filter(Boolean);
 
-buttonIndex.onclick = function(){
-    this.classList.toggle('activeButton');
-    bookIndex.classList.toggle('showBookIndex');
+const closeBookIndex = function() {
+    if (!bookIndex.classList.contains('showBookIndex')) return;
+    bookIndex.classList.remove('showBookIndex');
+    bookIndexToggleButtons.forEach(btn => btn.classList.remove('activeButton'));
 };
+
+const toggleBookIndex = function() {
+    const isOpen = bookIndex.classList.toggle('showBookIndex');
+    bookIndexToggleButtons.forEach(btn => btn.classList.toggle('activeButton', isOpen));
+};
+
+bookIndexToggleButtons.forEach(btn => btn.addEventListener('click', toggleBookIndex));
+
+document.addEventListener('click', function(event) {
+    const clickedInsideIndex = bookIndex.contains(event.target);
+    const clickedToggleButton = bookIndexToggleButtons.some(btn => btn.contains(event.target));
+    if (!clickedInsideIndex && !clickedToggleButton) {
+        closeBookIndex();
+    }
+});
 
 const footNotesAndAudiobook = document.getElementById("footNotesAndAudiobook");
+const buttonFootNotes = document.getElementById("buttonFootNotes");
+const footNotesToggleButtons = [buttonFootNotes].filter(Boolean);
 
-buttonFootNotes.onclick = function(){
-    this.classList.toggle('activeButton');
-    footNotesAndAudiobook.classList.toggle('showBookFootNotes');
+const closeFootNotes = function() {
+    if (!footNotesAndAudiobook.classList.contains('showBookFootNotes')) return;
+    footNotesAndAudiobook.classList.remove('showBookFootNotes');
+    footNotesToggleButtons.forEach(btn => btn.classList.remove('activeButton'));
 };
+
+const toggleFootNotes = function() {
+    const isOpen = footNotesAndAudiobook.classList.toggle('showBookFootNotes');
+    footNotesToggleButtons.forEach(btn => btn.classList.toggle('activeButton', isOpen));
+};
+
+const openFootNotes = function() {
+    if (footNotesAndAudiobook.classList.contains('showBookFootNotes')) return;
+    footNotesAndAudiobook.classList.add('showBookFootNotes');
+    footNotesToggleButtons.forEach(btn => btn.classList.add('activeButton'));
+};
+
+Array.from(footNotes).forEach(fn => {
+    fn.addEventListener('click', openFootNotes);
+});
+
+buttonFootNotes && (buttonFootNotes.onclick = toggleFootNotes);
+
+document.addEventListener('click', function(event) {
+    const clickedInsideIndex = bookIndex.contains(event.target);
+    const clickedIndexToggleButton = bookIndexToggleButtons.some(btn => btn.contains(event.target));
+    if (!clickedInsideIndex && !clickedIndexToggleButton) {
+        closeBookIndex();
+    }
+
+    const clickedInsideFootnotes = footNotesAndAudiobook.contains(event.target);
+    const clickedFootnotesToggle = footNotesToggleButtons.some(btn => btn.contains(event.target));
+    const clickedFootNote = Array.from(footNotes).some(fn => fn.contains(event.target));
+    if (!clickedInsideFootnotes && !clickedFootnotesToggle && !clickedFootNote) {
+        closeFootNotes();
+    }
+});
