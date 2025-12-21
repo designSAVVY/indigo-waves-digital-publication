@@ -234,6 +234,7 @@
             <div class="circleOrnamentRight"></div>
             <details class="nameOfPersonRight">
                 <summary>Sancintya Mohini Simpson</summary>
+                <a href="../watch/#watch-sancintya-shivanjani">Watch: Sancintya Mohini Simpson & Shivanjani Lal</a>
             </details>
         </div>
 
@@ -253,7 +254,13 @@
         </div>
 
         <div class="listOfNamesRow">
-            <div class="spacerRight n17"></div>
+            <div class="spacerLeft n17L"></div>
+            <div class="circleOrnament"></div>
+            <details class="nameOfPersonLeft">
+                <summary>Shivanjani Lal</summary>
+                <a href="../watch/#watch-sancintya-shivanjani">Watch: Sancintya Mohini Simpson & Shivanjani Lal</a>
+            </details>
+            <div class="spacerRight n17R"></div>
             <div class="circleOrnamentRight"></div>
             <details class="nameOfPersonRight">
                 <summary>Euridice Zaituna Kala</summary>
@@ -833,6 +840,7 @@
         text-decoration: underline;
         text-decoration-style: wavy;
         text-decoration-thickness: 0.075em;
+        line-height: 1.75em;
     }
 
     .listOfNamesRow details a:hover{
@@ -840,12 +848,24 @@
 
     }
 
+    /* Highlight names whose details contain links */
+    .listOfNamesRow details:has(a) summary{
+        text-decoration: wavy underline;
+        text-decoration-color: var(--c1);
+        text-decoration-thickness: 0.05em;
+        text-underline-offset: 0.15em;
+        cursor: pointer;
+    }
+
+    .listOfNamesRow details:has(a) summary:hover{
+        text-decoration: none;
+    }
+
     .nameOfPersonLeft{
         grid-column: 2;
         grid-row: 1;
         align-content: top;
         color: var(--c1);
-        cursor: pointer;
         margin-top: 0.5em;
         margin-left: 1vw;
     }
@@ -855,13 +875,69 @@
         grid-row: 1;
         align-content: top;
         color: var(--c1);
-        cursor: pointer;
         text-align: right;
         margin-top: 0.5em;
         margin-right: 1vw;
     }
 
     ::marker{ display:none; } summary{ list-style: none }
+
+    @media (max-width: 600px) {
+        body{
+            grid-template-columns: 1fr;
+        }
+
+        #wrapper{
+            grid-column: 1 / -1;
+            padding: 0 1.25rem;
+        }
+
+        #listOfNamesContainer{
+            font-size: clamp(0.95em, 4vw, 1.25em);
+            grid-template-rows: none;
+            grid-auto-rows: max-content;
+            overflow-x: visible;
+            padding: 0 0.25rem;
+        }
+
+        .listOfNamesRow{
+            grid-template-columns: 1fr;
+            grid-template-rows: auto auto;
+            grid-template-areas:
+                "left"
+                "right";
+            align-items: start;
+            row-gap: 0.2em;
+        }
+
+        .listOfNamesRow details a{  
+            line-height: 1.75em;
+        }
+
+        .spacerLeft,
+        .spacerRight,
+        .circleOrnament,
+        .circleOrnamentRight{
+            display: none;
+        }
+
+        .nameOfPersonLeft{
+            grid-area: left;
+            margin-left: 1.25rem;
+        }
+
+        .nameOfPersonRight{
+            grid-area: right;
+            text-align: left;
+            margin-right: 0;
+            padding-left: 1.25rem;
+            margin-top: 0.2em;
+        }
+
+        .listOfNamesRow details a{
+            margin-top: 0.35em;
+        }
+    }
 
 </style>
 
