@@ -6,7 +6,7 @@
     --font-size-tiny: 0.75em;
     --font-size-small: 1em;
     --font-size-normal: 1.25em;
-    --font-size-big: 1.5em;
+    --font-size-big: 1.4em;
     --margin-small: 0.5em;
     --margin-medium: 1em;
     --margin-big: 2em;
@@ -27,9 +27,12 @@
           font-style: normal;
     }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     background-image: linear-gradient(to bottom, var(--bg1), var(--bg2));
-    scroll-behavior: smooth;
 
     font-family: "Zimula";
     color: var(--c0);
@@ -54,6 +57,21 @@ body{
     grid-column: 2;
     grid-row: 2;
     text-align: center;
+    color: var(--c1);
+}
+
+#scrollArrow{
+    margin-top: var(--margin-huge);
+    font-size: 2em;
+    transition: color 250ms;
+}
+
+#scrollArrow a{
+    text-decoration: none;
+    color: var(--c0);
+}
+
+#scrollArrow a:hover{
     color: var(--c1);
 }
 
@@ -128,7 +146,10 @@ a:hover{
 #introText{
     font-size: var(--font-size-big);
     line-height: 1.25em;
+    margin-left: 1.5em;
 }
+
+
 
 #handouts{
     margin-top: var(--margin-huge);
@@ -140,7 +161,7 @@ a:hover{
     grid-column: 2;
 
     display: grid;
-    grid-gap: var(--margin-huge);
+    grid-gap: 4vw;
     grid-template-columns: 1fr 1fr 1fr;
     word-break: break-word;
 }
@@ -215,7 +236,11 @@ footer{
 
 #logosContainer a img{
     width: 100%;
-    height: 100%;
+    height: auto;
+    max-height: 140px;
+    object-fit: contain;
+    display: block;
+    filter: drop-shadow(0 1px 2px rgba(0,0,0,0.35));
 }
 
 #impressumLink{
@@ -240,4 +265,50 @@ footer{
 
 #lottoLogo{
     text-decoration: none;
+}
+
+@media (max-width: 1080px) {
+    #logosContainer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--margin-big);
+        padding: var(--margin-big) var(--margin-medium);
+        margin-left: var(--margin-medium);
+        justify-content: center;
+        align-items: center;
+    }
+
+    #logosContainer a{
+        flex: 0 1 30%;
+        max-width: 2%;
+        min-width: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .doubleGridSpan{
+        flex-basis: 64%;
+        max-width: 64%;
+    }
+
+    #logosContainer a img{
+        width: 100%;
+        height: auto;
+        max-height: 120px;
+        object-fit: contain;
+    }
+
+    #credits-website{
+        grid-column: 1 / -1;
+        text-align: center;
+        font-size: var(--font-size-small);
+        line-height: 1.4;
+        overflow-wrap: anywhere;
+    }
+
+    #impressumLink{
+        grid-column: 1 / -1;
+        text-align: center;
+    }
 }
