@@ -247,7 +247,7 @@ footer{
 #impressumLink{
     text-align: center;
     grid-row: 3;
-    grid-column: 1 / 8;
+    grid-column: 1 / -1;
 }
 
 #credits-website{
@@ -255,7 +255,7 @@ footer{
     margin-bottom: 2em;
     text-align: right;
     grid-row: 2;
-    grid-column: 1 / 8;
+    grid-column: 1 / -1;
 }
 
 #lottoLogo span{
