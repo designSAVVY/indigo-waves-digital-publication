@@ -119,6 +119,7 @@ a:hover{
     justify-content: center;
     height: 100vh;
     position: fixed;
+    z-index: 99;
     left: var(--margin-medium);
 }
 
